@@ -2,8 +2,8 @@ import requests
 import pyodbc
 
 # Replace with the latitude and longitude of your city
-LATITUDE = '28.7041'
-LONGITUDE = '77.1025'
+LATITUDE = '11.0168'
+LONGITUDE = '76.9558'
 URL = f"https://api.open-meteo.com/v1/forecast?latitude={LATITUDE}&longitude={LONGITUDE}&hourly=temperature_2m"
 
 conn_str = (
@@ -23,7 +23,7 @@ def get_weather_data():
     if response.status_code == 200:
         # Extracting the first hour's data for simplicity
         return {
-            "city": "Delhi",  # Open-Meteo doesn't provide city names directly
+            "city": "Coimbatore",  # Open-Meteo doesn't provide city names directly
             "temperature": data['hourly']['temperature_2m'][0],
             }
     else:
@@ -34,7 +34,7 @@ def store_weather_data(weather):
     with pyodbc.connect(conn_str) as conn:
         with conn.cursor() as cursor:
             cursor.execute(
-                "INSERT INTO WeatherDataTable (city, temperature) VALUES (?, ?)",
+                "INSERT INTO Weather_Data(city, temperature) VALUES (?, ?)",
                 weather["city"], weather["temperature"]
             )
         conn.commit()
