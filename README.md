@@ -2,7 +2,8 @@
 Real-Time Weather Analysis using Azure and Python
 
 
-Project Description: Real-Time Weather Data Collection and Storage
+
+
 Project Title: Real-Time Weather Data Collection and Storage System
 
 Overview: This project involves creating a system that collects real-time weather data from an API and stores it in an Azure SQL Database. The system fetches weather information such as temperature, humidity, and weather conditions for a specified city and stores this data for future analysis or reporting. This project highlights the use of Python, Azure SQL Database, and API integration.
